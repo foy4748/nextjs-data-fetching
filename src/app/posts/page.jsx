@@ -1,4 +1,5 @@
 import Link from "next/link";
+import style from "./post.module.css";
 
 export const getPosts = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -13,8 +14,12 @@ export default async function Posts() {
       {posts.map((singlePost) => {
         return (
           <div key={singlePost.id} className="border-2 border-slate-300">
-            <p className="text-2xl font-bold">{singlePost.title}</p>
-            <p className="font-semibold">{singlePost.body}</p>
+            <p className={`text-2xl font-bold ${style["post-title"]}`}>
+              {singlePost.title}
+            </p>
+            <p className="font-semibold testing-purpose-css-class">
+              {singlePost.body}
+            </p>
             <Link href={`/posts/${singlePost.id}`}>
               <button className="bg-green-300 text-black">Details</button>
             </Link>

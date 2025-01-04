@@ -19,3 +19,8 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.testing-purpose-css-class {
+  color: #64292976;
+  background-color: rgb(185, 255, 144);
+}
