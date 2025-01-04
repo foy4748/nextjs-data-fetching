@@ -1,4 +1,10 @@
+import Link from "next/link";
 import MealSearchInput from "./components/MealSearchInput";
+
+export const metadata = {
+  title: "All Meals",
+  description: "Meals loaded from MealDB API",
+};
 
 export default async function MealsPage({ searchParams }) {
   const query = await searchParams;
@@ -30,6 +36,7 @@ export default async function MealsPage({ searchParams }) {
             <div>
               <p className="text-2xl font-bold">{singleMeal?.strMeal}</p>
               <p>{singleMeal?.strInstructions}</p>
+              <Link href={`/meals/${singleMeal.idMeal}`}>Details</Link>
             </div>
           );
         })}

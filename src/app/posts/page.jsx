@@ -7,6 +7,11 @@ export const getPosts = async () => {
   return data;
 };
 
+export const metadata = {
+  title: "All posts",
+  description: "Loading JSON placeholder posts using Server Component",
+};
+
 export default async function Posts() {
   const posts = await getPosts();
   return (
