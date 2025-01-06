@@ -1,15 +1,11 @@
 import { redirect } from "next/navigation";
 import React from "react";
 
-export default async function ProductsPage() {
-  const res = await fetch("http://localhost:3000/api/items", {
-    cache: "force-cache",
-  });
-  const data = await res.json();
+export const dynamic = "force-dynamic";
 
-  if (data.length > 3) {
-    redirect("/");
-  }
+export default async function ProductsPage() {
+  const res = await fetch("http://localhost:3000/api/items");
+  const data = await res.json();
 
   return (
     <ul className="text-center mt-8">
