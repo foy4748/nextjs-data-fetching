@@ -1,7 +1,11 @@
 import LoginButton from "@/components/LoginButton";
+import UserInfo from "@/components/UserInfo";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions)
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -50,6 +54,10 @@ export default function Home() {
           </a>
           <LoginButton />
         </div>
+        <p className="font-bold text-xl">FROM CLIENT COMPONENT</p>
+        <UserInfo />
+        {JSON.stringify(session)}
+
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
