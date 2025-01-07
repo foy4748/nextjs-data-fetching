@@ -56,6 +56,7 @@ export default async function Home() {
         </div>
         <p className="font-bold text-xl">FROM CLIENT COMPONENT</p>
         <UserInfo />
+        <p className="font-bold text-xl">FROM SERVER COMPONENT</p>
         {JSON.stringify(session)}
 
       </main>
