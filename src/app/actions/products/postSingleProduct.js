@@ -1,11 +1,11 @@
 "use server";
 
-import dbConnect from "@/lib/dbConnect";
+import dbConnect, { collectionNames } from "@/lib/dbConnect";
 
 export const postSingleData = async (postedData) => {
     try {
 
-        const result = await dbConnect("practice_data").insertOne(postedData)
+        const result = await dbConnect(collectionNames.PRACTICE_DATA).insertOne(postedData)
         revalidatePath("/products")
         return result
     } catch (error) {
